@@ -1,5 +1,5 @@
 <?php
 return array(
     'news'=>'news/index',
-    'products'=>'product/list'
+    'product'=>'product/list'
 );

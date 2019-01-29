@@ -30,7 +30,36 @@ class Router
     public function run(){
 $uri=$this->getUri();
 
-        echo $uri;
+
+        foreach ($this->routes as $uriPattern => $path){
+            if(preg_match("~$uriPattern~",$uri)){//проверяет если удовлетворяет регуляроное выражение
+                /*
+                 * Определяем  какой контроллер
+                 * и ACTION должны обробатывать запрос
+                 * */
+                $segments=explode('/',$path);//создаем массив разделяем / .имя контроллер action
+               $controlerName=array_shift($segments).'Controller';//функция выбирает 1 элемент и добовляем Controllers
+           $controlerName=ucfirst($controlerName);
+         $actionName='action'.ucfirst(array_shift($segments));//добовляе в начало слово action
+
+                //подключаем фаил класса-контроллер$controllerFile=ROOT.'/а
+
+                $controllerFile=ROOT.'/Controllers/'.$controlerName.'.php';
+                if(file_exists($controllerFile)){
+
+                    require_once($controllerFile);
+
+                }
+//создаем  необходимый обьект
+                $controllerObject=new $controlerName;
+                $result=$controllerObject->$actionName();
+                if($result!=null){
+                    break;
+                }
+
+            }
+
+        }
 
 
     }

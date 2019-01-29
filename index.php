@@ -15,6 +15,9 @@ error_reporting(E_ALL);//настраеваем отображение всех 
 
 define('ROOT',  dirname(__FILE__));
 require_once (ROOT.'/Components/Router.php');//подключаем файл Route.php
+//проверка на наличие в массиве routers.php
+
+
 
 /*  step 3 connect to DB*/
 
