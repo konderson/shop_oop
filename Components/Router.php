@@ -37,11 +37,27 @@ $uri=$this->getUri();
                  * Определяем  какой контроллер
                  * и ACTION должны обробатывать запрос
                  * */
-                $segments=explode('/',$path);//создаем массив разделяем / .имя контроллер action
-               $controlerName=array_shift($segments).'Controller';//функция выбирает 1 элемент и добовляем Controllers
-           $controlerName=ucfirst($controlerName);
+
+               /* echo '</br>Запрос пользователя'.$uri;
+                echo '</br> Патерн сторка'.$uriPattern;
+                echo '</br> Кто обробатывает'.$path;*/
+//определяем внутрений маршрут preg_replace петрн строкуб, строку с внутриним путем , и откуда получаем фаил
+                $uri = substr($uri, 1);
+                $internalRoute=preg_replace("~$uriPattern~",$path,$uri);
+               /* echo '</br> Нужно сформировать '.$internalRoute;
+                echo '</br>';*/
+
+
+                $segments=explode('/',$internalRoute);//создаем массив разделяем / .имя контроллер action
+
+               $controlerName=array_shift($segments);//функция выбирает 1 элемент и добовляем Controllers
+
+           $controlerName=ucfirst($controlerName).'Controller';
+
          $actionName='action'.ucfirst(array_shift($segments));//добовляе в начало слово action
 
+                /* Формирум из оставшегося масса sigment массив парамтров  */
+                $parameters[]=$segments;
                 //подключаем фаил класса-контроллер$controllerFile=ROOT.'/а
 
                 $controllerFile=ROOT.'/Controllers/'.$controlerName.'.php';
@@ -52,8 +68,16 @@ $uri=$this->getUri();
                 }
 //создаем  необходимый обьект
                 $controllerObject=new $controlerName;
-                $result=$controllerObject->$actionName();
+              //  $result=$controllerObject->$actionName($parameters);
+                if (count($parameters)>1){
+echo count($parameters);
+                    $result=call_user_func_array(array($controllerObject,$actionName),$parameters);
+                }else{
+                    $result=$controllerObject->$actionName();
+                }
+
                 if($result!=null){
+
                     break;
                 }
 
