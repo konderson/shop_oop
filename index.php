@@ -22,6 +22,7 @@ error_reporting(E_ALL);//настраеваем отображение всех 
 
 define('ROOT',  dirname(__FILE__));
 require_once (ROOT.'/Components/Router.php');//подключаем файл Route.php
+require_once (ROOT.'/Components/DB.php');//подключаев файл для конекта с базой двнных
 //проверка на наличие в массиве routers.php
 
 

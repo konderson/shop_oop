@@ -38,7 +38,7 @@ $uri=$this->getUri();
                  * и ACTION должны обробатывать запрос
                  * */
 
-               /* echo '</br>Запрос пользователя'.$uri;
+                /*echo '</br>Запрос пользователя'.$uri;
                 echo '</br> Патерн сторка'.$uriPattern;
                 echo '</br> Кто обробатывает'.$path;*/
 //определяем внутрений маршрут preg_replace петрн строкуб, строку с внутриним путем , и откуда получаем фаил
@@ -54,10 +54,11 @@ $uri=$this->getUri();
 
            $controlerName=ucfirst($controlerName).'Controller';
 
+
          $actionName='action'.ucfirst(array_shift($segments));//добовляе в начало слово action
 
                 /* Формирум из оставшегося масса sigment массив парамтров  */
-                $parameters[]=$segments;
+                $parameters=$segments;
                 //подключаем фаил класса-контроллер$controllerFile=ROOT.'/а
 
                 $controllerFile=ROOT.'/Controllers/'.$controlerName.'.php';
@@ -69,10 +70,14 @@ $uri=$this->getUri();
 //создаем  необходимый обьект
                 $controllerObject=new $controlerName;
               //  $result=$controllerObject->$actionName($parameters);
-                if (count($parameters)>1){
-echo count($parameters);
+
+                if (count($parameters)>=1){
+
                     $result=call_user_func_array(array($controllerObject,$actionName),$parameters);
-                }else{
+
+                }
+                else{
+
                     $result=$controllerObject->$actionName();
                 }
 

@@ -12,10 +12,7 @@ class NewsController{
 
         $newsList=array();
         $newsList=News::getNewsList();
-        echo '<pre>';
-        print_r($newsList);
-        echo '<pre>';
-
+      require_once (ROOT.'/Views/news/index.php');
         return true;
     }
 
@@ -24,7 +21,7 @@ class NewsController{
         if ($id){
             $newsItem=News::getNewsItemById($id);
             echo '<pre>';
-            print_r($newsItem);
+            echo json_encode($newsItem);
             echo '<pre>';
             echo 'Action View';
         }

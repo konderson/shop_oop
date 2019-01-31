@@ -10,18 +10,23 @@ class News
 {
     public static function getNewsItemById($id)
     {
+$id=(int)$id;
+
+if($id){
+
+ $db=DB::getConection();
+    $result=$db->query('SELECT * FROM news WHERE id='.$id);
+$result->setFetchMode(PDO::FETCH_ASSOC);
+    $newsItem=$result->fetch();
+
+    return $newsItem;
+}
 
     }
 
     public static function getNewsList()
     {
-
-        $host='127.0.0.1';
-        $database="basei";
-        $user='konderson';
-        $password='220831';
-
-        $db = new PDO('mysql:host=127.0.0.1;dbname=mvc_site', $user, $password,[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$db=DB::getConection();
 
 $newsList=array();
 $result=$db->query('SELECT *'
@@ -36,6 +41,7 @@ while ($row=$result->fetch()){
     $newsList[$i]['title']=$row['title'];
     $newsList[$i]['date']=$row['data'];
     $newsList[$i]['short_content']=$row['short_content'];
+    $newsList[$i]['author']=$row['author_name'];
     $i++;
 }
 
