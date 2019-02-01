@@ -15,7 +15,7 @@ public  static function  getConection()
 
     $dsn="mysql:host={$params['host']};dbname={$params['db_name']}";
     $db=new PDO($dsn,$params['user'],$params['password'],[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
+$db->exec("set names utf8");
     return $db;
 }
 }
