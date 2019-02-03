@@ -8,7 +8,7 @@
 
 class Product
 {
-const  SHOW_BY_DEFAULT=10;
+const  SHOW_BY_DEFAULT=6;
 
 
 public  static  function getLatesProducts($count=self::SHOW_BY_DEFAULT){//метод для выборки последних 10-ти товаров
@@ -36,14 +36,14 @@ public  static  function getLatesProducts($count=self::SHOW_BY_DEFAULT){//мет
 }
 
 
-    public static  function  getProductsListByCategory($categoryId=false){
-
+    public static  function  getProductsListByCategory($categoryId=false,$page){
+$ofcet=($page-1)*self::SHOW_BY_DEFAULT;
         $db=DB::getConection();
         $products=array();
         $resolt=$db->query("SELECT id,name,price,image,is_new,code FROM product 
 
 WHERE status='1' AND category_id='$categoryId'
-ORDER  BY id DESC LIMIT ".self::SHOW_BY_DEFAULT);
+ORDER  BY id asc LIMIT ".self::SHOW_BY_DEFAULT.' OFFSET '.$ofcet);
         $i=0;
         while ($row=$resolt->fetch()){
             $productsList[$i]['id']=$row['id'];
@@ -56,6 +56,18 @@ $i++;
         }
 
 return $productsList;
+}
+
+
+public  static function  getProductById($id){
+
+
+    $db=DB::getConection();
+    $result=$db->query('SELECT * FROM product WHERE  id='.$id.'.');
+    $productItem=array();
+    $productItem=$result->fetch();
+    return $productItem;
+
 }
 
 

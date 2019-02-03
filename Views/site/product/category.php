@@ -9,17 +9,9 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Category</h2>
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                        <?php foreach ($categories as $categoryItem ):  ?>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="/category/<?php echo $categoryItem['id']?>"><?php echo $categoryItem['name']?></a></h4>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div><!--/category-products-->
+                    <h2>Категории</h2>
 
+                    <?php include ROOT.'/Views/layout/sidebar.php'?>
                     <div class="brands_products"><!--brands_products-->
                         <h2>Brands</h2>
                         <div class="brands-name">
@@ -51,7 +43,7 @@
                                     <div class="productinfo text-center">
                                         <img src='/template/images/home/<?php echo $productItem['image']?>'  alt="" />
                                         <h2><?php echo $productItem['price']?></h2>
-                                        <a href="/product/<?php echo $productItem['id']?>">  <p><?php echo $productItem['name']?></p></a>
+                                        <a href="/product/<?php echo $productItem['id']?>">  <p><?php echo $productItem['id'].' : '.$productItem['name']?></p></a>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Добавить в карзину</a>
                                     </div>
 
