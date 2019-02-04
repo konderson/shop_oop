@@ -5,8 +5,9 @@
  * Date: 01.02.2019
  * Time: 14:48
  */
-include_once  ROOT.'/Models/Category.php';
-include_once  ROOT.'/Models/Product.php';
+//include_once  ROOT.'/Models/Category.php';
+//include_once  ROOT.'/Models/Product.php';
+//include_once ROOT.'/Components/Pagination.php';
 class CatalogController
 {
 
@@ -16,7 +17,8 @@ class CatalogController
 
 $categoryProducts=array();
         $categoryProducts=Product::getProductsListByCategory($categoryId,$page);
-
+$total=Product::getTotalProductInCategory($categoryId);
+$pagination=new Pagination($total,$page,Product::SHOW_BY_DEFAULT,'page-');
 
         require_once (ROOT.'/Views/site/product/category.php');
 

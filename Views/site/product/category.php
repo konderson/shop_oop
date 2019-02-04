@@ -62,6 +62,8 @@
                         </div>
                     <?php endforeach; ?>
 
+                   <center> <?php echo $pagination->get();?> </center>
+
                 </div>
             </div>
 

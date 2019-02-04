@@ -8,7 +8,7 @@
 
 class Product
 {
-const  SHOW_BY_DEFAULT=6;
+const  SHOW_BY_DEFAULT=3;
 
 
 public  static  function getLatesProducts($count=self::SHOW_BY_DEFAULT){//метод для выборки последних 10-ти товаров
@@ -70,5 +70,10 @@ public  static function  getProductById($id){
 
 }
 
-
+public  static  function  getTotalProductInCategory($categoryId){
+    $db=DB::getConection();
+    $result=$db->query('SELECT count(id)AS count from product WHERE status=1 AND category_id='.$categoryId);
+     $row= $result->fetch();
+     return $row['count'];
+}
 }
