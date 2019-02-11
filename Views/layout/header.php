@@ -87,7 +87,17 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Акаунт</a></li>
+                            <li class="dropdown"><a href="#"><i class="fa fa-user"></i> Акаунт</a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a href="/catalog">Каталог</a></li>
+                                    <li><a href="product-details.html">Product Details</a></li>
+                                    <li><a href="checkout.html">Доставка</a></li>
+                                    <li><a href="/cart">Корзина</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                </ul>
+
+
+                            </li>
                             <li><a href="#"><i class="fa fa-star"></i> Доставка</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Проверка</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
