@@ -17,7 +17,7 @@
                     <h2>Войти в свой акаунт</h2>
                     <form action="/login"  method="post">
                         <input  type="email" name="email" placeholder="Email Address" />
-                        <input type="text" name="password" placeholder="Пароль" />
+                        <input type="password" name="password" placeholder="Пароль" />
                         <span>
 								<input type="checkbox" class="checkbox">
 								Запомнить меня!

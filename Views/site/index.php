@@ -20,7 +20,7 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="/template/images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <img src="/template/images/home/mobile.png" class="girl img-responsive" alt="" />
                                 <img src="/template/images/home/pricing.png"  class="pricing" alt="" />
                             </div>
                         </div>

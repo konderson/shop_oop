@@ -16,7 +16,7 @@ $categories=Category::getCategoriesList();
 
 
 $latestProducts=array();
-$latestProducts=Product::getLatesProducts(4);
+$latestProducts=Product::getLatesProducts(6);
    require_once (ROOT.'/Views/site/index.php');
 }
 }

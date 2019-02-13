@@ -39,7 +39,7 @@ public  static  function getLatesProducts($count=self::SHOW_BY_DEFAULT){//мет
     public static  function  getProductsListByCategory($categoryId=false,$page){
 $ofcet=($page-1)*self::SHOW_BY_DEFAULT;
         $db=DB::getConection();
-        $products=array();
+        $productsList=array();
         $resolt=$db->query("SELECT id,name,price,image,is_new,code FROM product 
 
 WHERE status='1' AND category_id='$categoryId'

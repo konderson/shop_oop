@@ -19,7 +19,7 @@ var_dump($resolt);*/
 ini_set('display_errors',1);
 error_reporting(E_ALL);//настраеваем отображение всех ошибок
 
-
+session_start();
 define('ROOT',  dirname(__FILE__));
 require_once (ROOT.'/Components/AutoLoad.php');
 //require_once (ROOT.'/Components/Router.php');//подключаем файл Route.php

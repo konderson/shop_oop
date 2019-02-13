@@ -10,7 +10,7 @@ class User
 {
     static function register($name, $email, $password)
     {
-        echo $email."</br>".$name."</br>".$password."</br>";
+
         $db = DB::getConection();
        // $result=$db->query("INSERT INTO user (name,email,password) VALUES ('$name','$email','$password')");
         $sql = "INSERT INTO user (name,email,password) VALUES (:name,:email,:password)";
@@ -38,15 +38,58 @@ static function  getUserDate($email,$password){
         }
         return false;
 
+    }
+    static  function getUserById($user_id){
+    $db=DB::getConection();
+    $sql="SELECT * FROM user where id=:id";
+    $result=$db->prepare($sql);
+    $result->bindParam(":id",$user_id,PDO::PARAM_STR);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    $result->execute();
+    return $result->fetch();
+
 
 }
 
+  static  function edit($id,$name,$email,$password){
+        $db=DB::getConection();
+        $sql="UPDATE user SET name=:name,email=:email,password=:password WHERE  id=:id";
+        $result=$db->prepare($sql);
+        $result->bindParam(':id',$id,PDO::PARAM_STR);
+        $result->bindParam(':email',$email,PDO::PARAM_STR);
+        $result->bindParam(':name',$name,PDO::PARAM_STR);
+        $result->bindParam(':password',$password,PDO::PARAM_STR);
+        $result->execute();
+        $result->execute();
+
+  }
+
+static  function checkLogged(){
+
+        if(isset( $_SESSION['user'])){
+
+            return $_SESSION['user'];
+        }
+           header("Location: /register/");
+
+}
+
+    static  function isGuest(){
+
+        if(isset( $_SESSION['user'])){
+
+            return false;
+        }
+return true;
+
+    }
+
 static function  auth($user_id){
-        session_start();
+
         if (!isset($_SESSION['user']))
         {
             $_SESSION['user']=$user_id;
-            echo $_SESSION['user'];
+            return $_SESSION['user'];
         }
 
 }

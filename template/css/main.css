@@ -2520,4 +2520,11 @@ h2.title {
   color: #FE980F;
 }
 
-
+.intro_account{
+  margin: 0 auto;
+  text-align: center;
+}
+.form_edit {
+  width: 300px;
+margin: 0px;
+}

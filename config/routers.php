@@ -1,6 +1,8 @@
 <?php
 return array(
+    'cabinet/edit'=>'account/edit',
     'cabinet/'=>'account/index',
+    'logout'=>'user/logout',
     'product/([0-9]+)'=>'product/view/$1',
     'category/([0-9]+)/page-([0-9])'=>'catalog/category/$1/$2',
     'login'=>'user/login',
