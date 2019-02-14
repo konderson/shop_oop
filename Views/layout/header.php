@@ -90,7 +90,8 @@
                             <li class="dropdown"><a href="/cabinet/"><i class="fa fa-user"></i> Акаунт</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Доставка</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Проверка</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li><a href="cart.html" id="add_tocart"><i class="fa fa-shopping-cart"></i> Корзина
+                                    <span id="count_cart"><?php echo  Cart::countCart()?> </span></a></li>
                             <?php
                             if(!User::isGuest()){
                                 echo   "<li><a href='/logout'><i class='fa fa-lock'></i> Выйти</a></li>";
@@ -126,7 +127,9 @@
                                     <li><a href="/catalog">Каталог</a></li>
                                     <li><a href="product-details.html">Product Details</a></li>
                                     <li><a href="checkout.html">Доставка</a></li>
-                                    <li><a href="/cart">Корзина</a></li>
+                                    <li><a href="/cart">Корзина</a>
+
+                                    </li>
                                     <li><a href="login.html">Login</a></li>
                                 </ul>
                             </li>

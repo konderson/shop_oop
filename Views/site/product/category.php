@@ -44,7 +44,7 @@
                                         <img src='/template/images/home/<?php echo $productItem['image']?>'  alt="" />
                                         <h2><?php echo $productItem['price']?></h2>
                                         <a href="/product/<?php echo $productItem['id']?>">  <p><?php echo $productItem['id'].' : '.$productItem['name']?></p></a>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Добавить в карзину</a>
+                                        <a   class="btn btn-default add-to-cart" data="<?php echo $productItem['id'];?>" id="add_tocart"><i class="fa fa-shopping-cart"></i>Добавить в карзину</a>
                                     </div>
 
                                     <?php if ($productItem['is_new']==1){
@@ -77,4 +77,11 @@
     </div>
     </div>
 </section>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/template/js/addtoCart.js">
+
+</script>
 <?php include ROOT.'/Views/layout/footer.php'?>
+
+
+

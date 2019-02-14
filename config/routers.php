@@ -9,7 +9,9 @@ return array(
     'news/([0-9]+)'=>'news/view/$1',
 'register'=>'user/register',
     'news'=>'news/index',
-
+    'contact'=>'site/contact',
+    'cart/addAjax/([0-9]+)'=>'cart/addAjax/$1',
+'cart/add/([0-9]+)'=>'cart/add/$1',
     ''=>'site/index',
 );
 //news/([a-z]+)/([0-9]+)'=>'news/view/$1/$2',//router  проверяет через регулярное вырожение

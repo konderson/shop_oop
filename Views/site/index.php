@@ -32,7 +32,7 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="/template//template/images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                <img src="/template/images/home/mobile2.png" class="girl img-responsive" alt="" />
                                 <img src="/template/images/home/pricing.png"  class="pricing" alt="" />
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="/template/images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                <img src="/template/images/home/mobile3.png" class="girl img-responsive" alt="" />
                                 <img src="/template/images/home/pricing.png" class="pricing" alt="" />
                             </div>
                         </div>
@@ -70,16 +70,8 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Category</h2>
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                        <?php foreach ($categories as $categoryItem ):  ?>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="/category/<?php echo $categoryItem['id']?>"><?php echo $categoryItem['name']?></a></h4>
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
-                    </div><!--/category-products-->
+                    <h2>Катгории</h2>
+                    <?php include ROOT.'/Views/layout/sidebar.php'?>
 
                     <div class="brands_products"><!--brands_products-->
                         <h2>Brands</h2>
@@ -120,10 +112,10 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src='/template/images/home/<?php echo $productItem['image']?>'  alt="" />
+                                    <img style="width: 154px;height:150px;" src='/template/images/home/<?php echo $productItem['image']?>'  alt="" />
                                     <h2><?php echo $productItem['price']?></h2>
                                     <a href="/product/<?php echo $productItem['id']?>">  <p><?php echo $productItem['name']?></p></a>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Добавить в карзину</a>
+                                    <a href="/cart/add/<?php echo $productItem['id'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Добавить в карзину</a>
                                 </div>
 
                                 <?php if ($productItem['is_new']==1){
