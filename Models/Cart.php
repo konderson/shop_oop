@@ -49,6 +49,29 @@ class Cart
         }
     }
 
+public static  function  getProduct(){
+        if(isset($_SESSION['products'])){
 
+            return $_SESSION['products'];
+        }
+        return false;
+
+}
+
+
+public  static  function getTotalPrice($products){
+        $productsInCart=self::getProduct();
+        $total=0;
+        if ($productsInCart){
+
+            foreach ($products as $item){
+                print_r($productsInCart[$item['id']]);
+                echo "</br>";
+                $total+=$item['price']*$productsInCart[$item['id']];
+
+            }
+            return $total;
+        }
+}
 
 }

@@ -69,8 +69,28 @@ public  static function  getProductById($id){
     return $productItem;
 
 }
+public  static  function getProductsByIds($idsArray){
+    $products=array();
+    $db=DB::getConection();
+    $idsString=implode(',',$idsArray);
 
-public  static  function  getTotalProductInCategory($categoryId){
+    $sql="SELECT * FROM product WHERE  status=1 AND id in ($idsString)";
+
+    $result=$db->query($sql);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    $i=0;
+    while ($row=$result->fetch()){
+        $products[$i]['id']=$row['id'];
+        $products[$i]['name']=$row['name'];
+        $products[$i]['code']=$row['code'];
+        $products[$i]['price']=$row['price'];
+        $i++;
+
+    }
+    return $products;
+}
+
+public  static  function  getTotalPrece($categoryId){
     $db=DB::getConection();
     $result=$db->query('SELECT count(id)AS count from product WHERE status=1 AND category_id='.$categoryId);
      $row= $result->fetch();
