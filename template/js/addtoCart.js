@@ -22,6 +22,7 @@ function addtoCart() {
         data:{},
 
         success: function (response) {
+
             $('#count_cart').html(response);
         },
 

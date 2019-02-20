@@ -27,8 +27,39 @@
                                 <th>Количество ,шт</th>
 
                             </tr>
+        <?php  foreach ($products as $product):  ?>
+
+                        <tr>
+
+                          <td>
+
+                              <?php echo $product['code']?>
+
+                          </td>
+
+                            <td>
+
+                                <?php echo $product['name']?>
+
+                            </td>
+
+                            <td>
+
+                                <?php echo $product['price']?>
+
+                            </td>
 
 
+                            <td>
+
+                                <?php echo $productsInCart[$product['id']]?>
+
+                            </td>
+                        </tr>
+                            <tr>
+                            <? endforeach; ?>
+                            <td colspan="3">Общая стоимось товаров : </td>
+                            <td> <?php echo Cart::getTotalPrice($products) ?> сом </td> </tr>
                         </table>
 
 <?php else: ?>

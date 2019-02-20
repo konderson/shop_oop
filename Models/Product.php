@@ -69,6 +69,19 @@ public  static function  getProductById($id){
     return $productItem;
 
 }
+
+    public static function  getTotalProductsInCategory($categoryId){
+
+        $db=DB::getConection();
+        $result=$db->query("SELECT count(id)as count FROM product WHERE status=1 AND category_id=$categoryId");
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $row= $result->fetch();
+        return $row['count'];
+
+    }
+
+
+
 public  static  function getProductsByIds($idsArray){
     $products=array();
     $db=DB::getConection();

@@ -65,8 +65,7 @@ public  static  function getTotalPrice($products){
         if ($productsInCart){
 
             foreach ($products as $item){
-                print_r($productsInCart[$item['id']]);
-                echo "</br>";
+
                 $total+=$item['price']*$productsInCart[$item['id']];
 
             }
