@@ -44,7 +44,7 @@ class CartController
 //категории для левог блока
         $categories = array();
         $categories = Category::getCategoriesList();
-
+ $result=false;
 
         //status успешного формленого заказа
 
@@ -83,11 +83,32 @@ class CartController
 
                 }
                 //сохраняем заказ в бд
-                $resolt=Order::save($userName,$userPhone,$userComment,$userId,$productInCart);
+                $result=Order::save($userName,$userPhone,$userComment,$userId,$productInCart);
 
-                if ($resolt){
+                if ($result){
                     //оповещаем админа о совершенном заказе
+
+                    $adminEmai="konderson97@gmail.com";
+                    $message="message/admin/ordes";
+                    $subject="Новый заказ";
+                    mail($adminEmai,$subject,$message);
+
+                    //Очищаем корзину
+
+                    Cart::clear();
+
+
                 }
+            }
+            else{//форма заполненена не корректно
+
+                $result=false;
+                $productInCart=Cart::getProduct();
+                $productsIds=array_keys($productInCart);
+                $products=Product::getProductsByIds($productsIds);
+                $totalPrice=Cart::getTotalPrice($products);
+                $totalQuantity=Cart::countCart();
+
             }
 
 
@@ -143,6 +164,7 @@ class CartController
             }
 
         }
-
+require_once (ROOT.'/Views/site/account/order.php');
+        return true;
 }
 }
