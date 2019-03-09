@@ -38,6 +38,15 @@ class CartController
         return true;
     }
 
+
+
+    public  function  actionDelete($id){
+        Cart::deleteProduct($id);
+
+     header("Location:/cart");
+
+    }
+
     public  function actionCheckout()
     {
 
@@ -76,13 +85,14 @@ class CartController
 
                 //проверяем авторизовался ли пользователь
                 if (User::isGuest()){
-                    $userId=false;
+                    $userId=null;
                 }
                 else{
                     $userId=User::checkLogged();
 
                 }
                 //сохраняем заказ в бд
+
                 $result=Order::save($userName,$userPhone,$userComment,$userId,$productInCart);
 
                 if ($result){

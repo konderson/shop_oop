@@ -10,6 +10,10 @@
     <link href="/template/css/font-awesome.min.css" rel="stylesheet">
     <link href="/template/css/prettyPhoto.css" rel="stylesheet">
     <link href="/template/css/price-range.css" rel="stylesheet">
+    <link href="/template/css/owl.carousel.css" rel="stylesheet">
+    <link href="/template/css/owl.theme.default.css" rel="stylesheet">
+    <link href="/template/css/owl.theme.green.css" rel="stylesheet">
+
     <link href="/template/css/animate.css" rel="stylesheet">
     <link href="/template/css/main.css" rel="stylesheet">
     <link href="/template/css/responsive.css" rel="stylesheet">
@@ -89,8 +93,8 @@
                         <ul class="nav navbar-nav">
                             <li class="dropdown"><a href="/cabinet/"><i class="fa fa-user"></i> Акаунт</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Доставка</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Проверка</a></li>
-                            <li><a href="cart.html" id="add_tocart"><i class="fa fa-shopping-cart"></i> Корзина
+                            <li><a href="/order"><i class="fa fa-crosshairs"></i>Проверка</a></li>
+                            <li><a href="/cart" id="add_tocart"><i class="fa fa-shopping-cart"></i> Корзина
                                     <span id="count_cart"><?php echo  Cart::countCart()?> </span></a></li>
                             <?php
                             if(!User::isGuest()){

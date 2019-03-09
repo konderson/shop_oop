@@ -79,7 +79,15 @@ public  static function  getProductById($id){
         return $row['count'];
 
     }
+public  static  function  getRecomend(){//methot returned recomend product
 
+    $db=DB::getConection();
+    $result=$db->query("SELECT * FROM product WHERE is_recommended=1");
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    $result->fetch();
+    return $result;
+
+}
 
 
 public  static  function getProductsByIds($idsArray){

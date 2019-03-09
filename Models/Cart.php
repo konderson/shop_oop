@@ -35,6 +35,14 @@ class Cart
     }
 
 
+    public  static function deleteProduct($id){
+
+$productInCart=self::getProduct();
+unset($productInCart[$id]);
+$_SESSION['products']=$productInCart;
+
+    }
+
     public  static  function  countCart(){
 
         if(isset($_SESSION['products'])){
@@ -70,6 +78,11 @@ public  static  function getTotalPrice($products){
 
             }
             return $total;
+        }
+}
+public  static  function  clear(){
+        if ($_SESSION['products']){
+            unset($_SESSION['products']);
         }
 }
 

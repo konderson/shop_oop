@@ -25,7 +25,7 @@
                                 <th>Название</th>
                                 <th>Стоимость , сом</th>
                                 <th>Количество ,шт</th>
-
+                            <th>Удалить товар </th>
                             </tr>
         <?php  foreach ($products as $product):  ?>
 
@@ -54,6 +54,10 @@
 
                                 <?php echo $productsInCart[$product['id']]?>
 
+                            </td>
+
+                            <td>
+                                <a href='cart/delete/<?php echo $product['id']?>'> Удалить</a>
                             </td>
                         </tr>
                             <tr>

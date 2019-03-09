@@ -14,7 +14,8 @@ public  function  actionIndex(){
 $categories=array();
 $categories=Category::getCategoriesList();
 
-
+$recomendProducts=array();
+    $recomendProducts=  Product::getRecomend();
 $latestProducts=array();
 $latestProducts=Product::getLatesProducts(6);
    require_once (ROOT.'/Views/site/index.php');

@@ -115,6 +115,15 @@ static function  auth($user_id){
     }
 
 
+static function  CheckPhone($userPhone){
+    if (strlen($userPhone) >= 9) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
     static function checkEmail($email)
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {

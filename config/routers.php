@@ -10,9 +10,11 @@ return array(
     'news/([0-9]+)'=>'news/view/$1',
 'register'=>'user/register',
     'news'=>'news/index',
+    'cart/delete/([0-9]+)'=>'cart/delete/$1',
     'contact'=>'site/contact',
     'cart/addAjax/([0-9]+)'=>'cart/addAjax/$1',
     'cart'=>'cart/index',//action in Cart Controller
+
     'cart/add/([0-9]+)'=>'cart/add/$1',
     ''=>'site/index',
 );
